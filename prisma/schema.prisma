@@ -1,0 +1,61 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// --- Enums ---
+enum Role {
+  PRINCIPAL
+  TEACHER
+}
+
+enum ContentStatus {
+  UPLOADED
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+// --- Models ---
+model User {
+  id            String    @id @default(uuid())
+  email         String    @unique
+  passwordHash  String
+  role          Role      @default(TEACHER)
+  createdAt     DateTime  @default(now())
+  
+  // Relations
+  uploadedContent Content[] @relation("TeacherContent")
+  approvedContent Content[] @relation("ApprovedByPrincipal")
+}
+
+model Content {
+  id                String        @id @default(uuid())
+  title             String
+  description       String?
+  subject           String        // e.g., "Maths", "Science"
+  fileUrl           String
+  status            ContentStatus @default(UPLOADED)
+  rejectionReason   String?
+  
+  // Scheduling fields
+  startTime         DateTime?
+  endTime           DateTime?
+  rotationDuration  Int           @default(5) // in minutes
+  
+  // Relations
+  teacher           User          @relation("TeacherContent", fields: [teacherId], references: [id])
+  teacherId         String
+  
+  approvedBy        User?         @relation("ApprovedByPrincipal", fields: [approvedById], references: [id])
+  approvedById      String?
+  
+  createdAt         DateTime      @default(now())
+
+  // Indexes for performance on public API
+  @@index([subject, status])
+  @@index([teacherId, status])
+}
