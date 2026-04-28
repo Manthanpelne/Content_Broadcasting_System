@@ -33,19 +33,28 @@ const signup = async (req, res) => {
 
 const login = async (req, res) => {
   const { email, password } = req.body;
-  const user = await prisma.user.findUnique({ where: { email } });
-
-  if (!user || !(await bcrypt.compare(password, user.passwordHash))) {
-    return res.status(401).json({ error: 'Invalid credentials' });
+  try {
+    
+    console.log("DEBUG: Attempting to find user with email:", email);
+    const user = await prisma.user.findUnique({ where: { email } });
+  
+    if (!user || !(await bcrypt.compare(password, user.passwordHash))) {
+      return res.status(401).json({ error: 'Invalid credentials' });
+    }
+  
+    const token = jwt.sign(
+      { userId: user.id, role: user.role },
+      process.env.JWT_SECRET,
+      { expiresIn: '24h' }
+    );
+  
+    res.json({ token, role: user.role });
   }
-
-  const token = jwt.sign(
-    { userId: user.id, role: user.role },
-    process.env.JWT_SECRET,
-    { expiresIn: '24h' }
-  );
-
-  res.json({ token, role: user.role });
+    catch (error) {
+  console.log("Prisma Error Code:", error.code);
+  console.log("Error Message:", error.message);
+  res.status(500).json({ error: "Database query failed" });
+}
 };
 
 
