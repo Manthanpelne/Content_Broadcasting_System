@@ -30,13 +30,15 @@ A secure, role-based backend system for managing and broadcasting educational co
 
 ## Installation & Setup
 
+   ** ENV **
+- `JWT_SECRET` - *****
+- `DATABASE_URL` - *****
+
+
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/Manthanpelne/Content_Broadcasting_System.git
 
-   ### .env :
-- `JWT_SECRET` - *****
-- `DATABASE_URL` - *****
 
 2. **Installation**:
     a. npm install
