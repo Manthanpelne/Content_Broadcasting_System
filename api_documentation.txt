@@ -1,0 +1,567 @@
+{
+  "info": {
+    "_postman_id": "4e47ff4f-cc01-4e85-99df-da006082030a",
+    "name": "auth collection api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "24265810"
+  },
+  "item": [
+    {
+      "name": "signup api",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": [
+        {
+          "name": "signup api",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\"email\":\"principal@gmail.com\",\r\n\"password\":\"principal@123\",\r\n\"role\":\"PRINCIPAL\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/auth/signup",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "auth",
+                "signup"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "87"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"57-sLfkCTSj9BkkTj4WYa82LfwvL9Q\""
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 28 Apr 2026 10:18:16 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"User created successfully\",\n    \"userId\": \"4f5bf880-9a8f-4e31-a093-948fad054c22\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "login api",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": [
+        {
+          "name": "login api",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\"email\":\"principal@gmail.com\",\r\n\"password\":\"principal@123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "248"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"f8-02Mrmvt7vTzIiZSJiKXpZ5I50Do\""
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 28 Apr 2026 10:22:51 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0ZjViZjg4MC05YThmLTRlMzEtYTA5My05NDhmYWQwNTRjMjIiLCJyb2xlIjoiUFJJTkNJUEFMIiwiaWF0IjoxNzc3MzcxNzcxLCJleHAiOjE3Nzc0NTgxNzF9.vX9H6XIZ-s2M-KLMynAhUmYDmk9MihMxIUpusGC5PvQ\",\n    \"role\": \"PRINCIPAL\"\n}"
+        }
+      ]
+    }
+  ]
+}
+
+
+
+{
+  "info": {
+    "_postman_id": "e74c5ce8-3903-4bac-b073-d28325799987",
+    "name": "content apis",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "24265810"
+  },
+  "item": [
+    {
+      "name": "content upload api",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "",
+              "value": "",
+              "type": "text",
+              "uuid": "3da0987c-9114-4585-b3c4-e6d930c51bc5"
+            },
+            {
+              "key": "title",
+              "value": "",
+              "type": "text",
+              "uuid": "04e4edba-fade-4b2a-a503-c33e36192c48"
+            },
+            {
+              "key": "description",
+              "value": "",
+              "type": "text",
+              "uuid": "9417d053-3c6b-4c0e-87fa-4a4480bda120"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/content/upload",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "content",
+            "upload"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "content upload api",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "title",
+                  "value": "Weekly Physics Lab",
+                  "type": "text",
+                  "uuid": "04e4edba-fade-4b2a-a503-c33e36192c48"
+                },
+                {
+                  "key": "description",
+                  "value": "Intro to quantum physics",
+                  "type": "text",
+                  "uuid": "9417d053-3c6b-4c0e-87fa-4a4480bda120"
+                },
+                {
+                  "key": "endTime",
+                  "value": "2026-04-28T12:00:00Z",
+                  "type": "text",
+                  "uuid": "6b508b18-ba9a-4f65-a374-b95ca6c275b5"
+                },
+                {
+                  "key": "rotationDuration",
+                  "value": "5",
+                  "type": "text",
+                  "uuid": "26f1ca31-ef24-4a8c-a9c0-c8f9034217ab"
+                },
+                {
+                  "key": "startTime",
+                  "value": "2026-04-28T10:00:00Z",
+                  "type": "text",
+                  "uuid": "e6013263-e00f-442d-9859-a1e19303b949"
+                },
+                {
+                  "key": "subject",
+                  "value": "Physics",
+                  "type": "text",
+                  "uuid": "7e0d0e07-8dc8-44b9-a18e-a026eee0d09e"
+                },
+                {
+                  "key": "file",
+                  "type": "file",
+                  "uuid": "17fed732-3e25-4dfc-b07f-ff85fa42eeae",
+                  "src": "/C:/Users/manth/Downloads/template-69c120274dd34cd59c3a11a3.png"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/content/upload",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "content",
+                "upload"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "520"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"208-4Fsj+5RHbXKkcu/ntSwZD0FW/40\""
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 28 Apr 2026 09:47:00 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"Content uploaded, waiting for approval\",\n    \"content\": {\n        \"id\": \"6d384632-d81c-43cb-96c4-13b4a0dcbfdb\",\n        \"title\": \"Weekly Physics Lab\",\n        \"description\": \"Intro to quantum physics\",\n        \"subject\": \"Physics\",\n        \"fileUrl\": \"uploads\\\\1777369620431-template-69c120274dd34cd59c3a11a3.png\",\n        \"status\": \"PENDING\",\n        \"rejectionReason\": null,\n        \"startTime\": \"2026-04-28T10:00:00.000Z\",\n        \"endTime\": \"2026-04-28T12:00:00.000Z\",\n        \"rotationDuration\": 5,\n        \"teacherId\": \"47a326f9-8900-4e4b-b67b-ffdfc0347d2b\",\n        \"approvedById\": null,\n        \"createdAt\": \"2026-04-28T09:47:00.473Z\"\n    }\n}"
+        },
+        {
+          "name": "content upload api",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "title",
+                  "value": "Weekly Physics Lab",
+                  "type": "text",
+                  "uuid": "04e4edba-fade-4b2a-a503-c33e36192c48"
+                },
+                {
+                  "key": "description",
+                  "value": "Intro to quantum physics",
+                  "type": "text",
+                  "uuid": "9417d053-3c6b-4c0e-87fa-4a4480bda120"
+                },
+                {
+                  "key": "endTime",
+                  "value": "2026-04-28T12:00:00Z",
+                  "type": "text",
+                  "uuid": "6b508b18-ba9a-4f65-a374-b95ca6c275b5"
+                },
+                {
+                  "key": "rotationDuration",
+                  "value": "5",
+                  "type": "text",
+                  "uuid": "26f1ca31-ef24-4a8c-a9c0-c8f9034217ab"
+                },
+                {
+                  "key": "startTime",
+                  "value": "2026-04-28T10:00:00Z",
+                  "type": "text",
+                  "uuid": "e6013263-e00f-442d-9859-a1e19303b949"
+                },
+                {
+                  "key": "subject",
+                  "value": "Physics",
+                  "type": "text",
+                  "uuid": "7e0d0e07-8dc8-44b9-a18e-a026eee0d09e"
+                },
+                {
+                  "key": "file",
+                  "type": "file",
+                  "uuid": "17fed732-3e25-4dfc-b07f-ff85fa42eeae",
+                  "src": "/C:/Users/manth/Downloads/template-69c120274dd34cd59c3a11a3.png"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/content/upload",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "content",
+                "upload"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "520"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"208-4Fsj+5RHbXKkcu/ntSwZD0FW/40\""
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 28 Apr 2026 09:47:00 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"Content uploaded, waiting for approval\",\n    \"content\": {\n        \"id\": \"6d384632-d81c-43cb-96c4-13b4a0dcbfdb\",\n        \"title\": \"Weekly Physics Lab\",\n        \"description\": \"Intro to quantum physics\",\n        \"subject\": \"Physics\",\n        \"fileUrl\": \"uploads\\\\1777369620431-template-69c120274dd34cd59c3a11a3.png\",\n        \"status\": \"PENDING\",\n        \"rejectionReason\": null,\n        \"startTime\": \"2026-04-28T10:00:00.000Z\",\n        \"endTime\": \"2026-04-28T12:00:00.000Z\",\n        \"rotationDuration\": 5,\n        \"teacherId\": \"47a326f9-8900-4e4b-b67b-ffdfc0347d2b\",\n        \"approvedById\": null,\n        \"createdAt\": \"2026-04-28T09:47:00.473Z\"\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "content status update api",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": [
+        {
+          "name": "content status update api",
+          "originalRequest": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"status\":\"APPROVED\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/content/6d384632-d81c-43cb-96c4-13b4a0dcbfdb/status",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "content",
+                "6d384632-d81c-43cb-96c4-13b4a0dcbfdb",
+                "status"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "546"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"222-TwyX8NCWHeVx7FY2RGgJEj/lSXU\""
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 28 Apr 2026 10:28:53 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"Content approved successfully\",\n    \"content\": {\n        \"id\": \"6d384632-d81c-43cb-96c4-13b4a0dcbfdb\",\n        \"title\": \"Weekly Physics Lab\",\n        \"description\": \"Intro to quantum physics\",\n        \"subject\": \"Physics\",\n        \"fileUrl\": \"uploads\\\\1777369620431-template-69c120274dd34cd59c3a11a3.png\",\n        \"status\": \"APPROVED\",\n        \"rejectionReason\": null,\n        \"startTime\": \"2026-04-28T10:00:00.000Z\",\n        \"endTime\": \"2026-04-28T12:00:00.000Z\",\n        \"rotationDuration\": 5,\n        \"teacherId\": \"47a326f9-8900-4e4b-b67b-ffdfc0347d2b\",\n        \"approvedById\": \"4f5bf880-9a8f-4e31-a093-948fad054c22\",\n        \"createdAt\": \"2026-04-28T09:47:00.473Z\"\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "publicBroadcasting api",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": [
+        {
+          "name": "publicBroadcasting api",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/content/live/47a326f9-8900-4e4b-b67b-ffdfc0347d2b",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "content",
+                "live",
+                "47a326f9-8900-4e4b-b67b-ffdfc0347d2b"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "513"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"201-Dz48/EXXkB6/1VyfgrC/YPNGVJc\""
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 28 Apr 2026 11:34:34 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"count\": 1,\n    \"items\": [\n        {\n            \"id\": \"6d384632-d81c-43cb-96c4-13b4a0dcbfdb\",\n            \"title\": \"Weekly Physics Lab\",\n            \"description\": \"Intro to quantum physics\",\n            \"subject\": \"Physics\",\n            \"fileUrl\": \"uploads/1777369620431-template-69c120274dd34cd59c3a11a3.png\",\n            \"status\": \"APPROVED\",\n            \"rejectionReason\": null,\n            \"startTime\": \"2026-04-28T10:00:00.000Z\",\n            \"endTime\": \"2026-04-28T12:00:00.000Z\",\n            \"rotationDuration\": 5,\n            \"teacherId\": \"47a326f9-8900-4e4b-b67b-ffdfc0347d2b\",\n            \"approvedById\": \"4f5bf880-9a8f-4e31-a093-948fad054c22\",\n            \"createdAt\": \"2026-04-28T09:47:00.473Z\"\n        }\n    ]\n}"
+        }
+      ]
+    }
+  ]
+}

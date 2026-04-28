@@ -1,0 +1,46 @@
+Architecture Notes: Content Broadcasting System
+
+1. Authentication & RBAC Flow
+We use JSON Web Tokens (JWT) for stateless authentication. When a user logs in, they receive a signed token. Every protected route uses authenticateToken middleware to verify the identity, and authorizeRole middleware to ensure only PRINCIPAL can access approval routes.
+
+2. Subject-Based System Design
+Content is categorized by a subject string in the database. The Public API allows optional filtering by this subject, ensuring that broadcasting systems can display targeted content (e.g., only "Physics" content) if needed.
+
+3. Upload Handling Approach
+Files are handled using multer with local storage. We validate files before saving to prevent malicious uploads. The system stores the file metadata (title, subject, duration) in PostgreSQL and keeps only the file path in the fileUrl field, ensuring the database remains lightweight.
+
+4. Approval Workflow Design
+Content starts with a PENDING status. The Principal uses a PATCH endpoint to flip this to APPROVED or REJECTED. This ensures that teachers cannot broadcast unverified or inappropriate material.
+
+5. Scheduling/Rotation Logic
+The Public API uses a time-based query. It filters content where the current time is between startTime and endTime. The rotationDuration is passed to the frontend, which iterates through the resulting list of approved items, creating a seamless loop of media.
+
+6. Database Design Decisions
+We use Prisma ORM with PostgreSQL.
+
+Indexing: We index teacherId and status to make public queries instant, even with large datasets.
+
+Normalization: We store dates as ISO strings to prevent time-zone inconsistencies.
+
+7. Folder Structure
+
+/controllers: Logic for handling requests.
+
+/routes: Defines API endpoints and links them to middleware.
+
+/middleware: Contains auth and role-check logic.
+
+/config: Prisma and database connections.
+
+/uploads: Local storage for media files.
+
+8. Middleware Usage
+Middleware acts as a gatekeeper. We use it to:
+
+Extract/verify tokens.
+
+Check user roles.
+
+Handle file uploads (multer).
+
+Catch errors to prevent server crashes.
