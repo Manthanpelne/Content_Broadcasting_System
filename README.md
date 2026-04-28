@@ -41,8 +41,8 @@ A secure, role-based backend system for managing and broadcasting educational co
 
 
 2. **Installation**:
-    a. npm install
-    b. npm run dev
+- `npm install`
+- `npm run dev`
 
 **for prisma ORM visualization** : enter ->  npx prisma studio  in terminal
    
