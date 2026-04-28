@@ -34,6 +34,10 @@ A secure, role-based backend system for managing and broadcasting educational co
    ```bash
    git clone https://github.com/Manthanpelne/Content_Broadcasting_System.git
 
+   ### .env :
+- `JWT_SECRET` - *****
+- `DATABASE_URL` - *****
+
 2. **Installation**:
     a. npm install
     b. npm run dev
